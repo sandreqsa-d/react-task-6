@@ -1,0 +1,47 @@
+body{
+    background-color: rgba(255, 217, 0, 0.46);
+}
+
+div {
+  max-width: 350px;
+  margin: 50px auto; 
+  padding: 20px;
+  background: #222222bd;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: sans-serif;
+}
+
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgb(69, 69, 69);
+  background: rgb(69, 69, 69);
+  color: white;
+  font-size: 14px;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+input:focus {
+  border-color: gold;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: rgb(174, 174, 0);
+  color: rgba(0, 0, 0, 0.471);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(255, 217, 0, 0.496);
+}
