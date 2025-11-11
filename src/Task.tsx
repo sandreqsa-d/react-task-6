@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import { useRef } from "react";
 import "./Task.css";
 
 const CARD_REGEX = /^\d{4} \d{4} \d{4} \d{4}$/;
@@ -13,7 +13,7 @@ const CardForm = () => {
   const mmRef = useRef<HTMLInputElement>(null);
   const yyRef = useRef<HTMLInputElement>(null);
 
-  const handleSave = useCallback(() => {
+  const handleSave = () => {
     const name = nameRef.current?.value.trim() || "";
     const number = numberRef.current?.value || "";
     const cvc = cvcRef.current?.value || "";
@@ -25,25 +25,25 @@ const CardForm = () => {
       nameRef.current?.focus();
       return;
     }
-    
+
     if (!CARD_REGEX.test(number)) {
       alert("Card number invalid! Use 0000 0000 0000 0000");
       numberRef.current?.focus();
       return;
     }
-    
+
     if (!MONTH_REGEX.test(mm)) {
       alert("Month invalid! Use 01-12");
       mmRef.current?.focus();
       return;
     }
-    
+
     if (!YEAR_REGEX.test(yy)) {
       alert("Year invalid! Use 2-digit year");
       yyRef.current?.focus();
       return;
     }
-    
+
     if (!CVC_REGEX.test(cvc)) {
       alert("CVC invalid! Use 3 digits");
       cvcRef.current?.focus();
@@ -52,8 +52,7 @@ const CardForm = () => {
 
     const data = { name, number, cvc, mm, yy };
     localStorage.setItem("cardData", JSON.stringify(data));
-    alert("Card data saved!");
-  }, []);
+  };
 
   return (
     <div>
